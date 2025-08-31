@@ -1,124 +1,68 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kejutan untuk Jesslyn 🎉</title>
-<style>
-body {
-  margin: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Poppins', sans-serif;
-  overflow: hidden;
-  background: linear-gradient(135deg, #ffcccc, #ff6666);
-  background-size: 200% 200%;
-  animation: bgMove 15s ease infinite;
-}
-
-@keyframes bgMove {
-  0% { background-position: 0 0; }
-  50% { background-position: 100% 100%; }
-  100% { background-position: 0 0; }
-}
-
-.card {
-  text-align: center;
-  padding: 40px;
-  background: rgba(255,255,255,0.7);
-  border-radius: 20px;
-  backdrop-filter: blur(15px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-  transform: translateY(30px) scale(0.9);
-  opacity: 0;
-  animation: slidePop 1.5s ease forwards 0.5s;
-}
-
-@keyframes slidePop {
-  0% { transform: translateY(30px) scale(0.9); opacity: 0; }
-  70% { transform: translateY(-10px) scale(1.05); opacity: 1; }
-  100% { transform: translateY(0) scale(1); }
-}
-
-h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  font-weight: 600;
-}
-
-a button {
-  padding: 12px 30px;
-  border: none;
-  border-radius: 30px;
-  font-size: 1rem;
-  cursor: pointer;
-  background: linear-gradient(135deg, #ff758c, #ff7eb3);
-  color: white;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-a button:hover {
-  background: linear-gradient(135deg, #ff5e78, #ff6fa0);
-  transform: scale(1.08) rotate(-1deg);
-  box-shadow: 0 0 15px rgba(255,130,130,0.7);
-}
-
-/* Confetti */
-.confetti {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background-color: #fff;
-  opacity: 0.8;
-  pointer-events: none;
-  z-index: 999;
-  border-radius: 50%;
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kejutan untuk Jesslyn 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+       background: linear-gradient(135deg, #ffcccc, #ff6666);
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
+    }
+    .card {
+      text-align: center;
+      padding: 40px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      transform: translateY(30px);
+      opacity: 0;
+      animation: slideUp 2s ease forwards 0.5s;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    a button {
+      padding: 12px 30px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3); /* pink elegan */
+      color: white;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    a button:hover {
+      background: linear-gradient(135deg, #ff5e78, #ff6fa0);
+      transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
 </head>
 <body>
-<div class="card">
-  <h1>Hai Jesslyn ✨</h1>
-  <p>Ada sesuatu yang spesial untuk kamu...</p>
-  <a href="surprise.html">
-    <button id="surpriseBtn">Klik Kejutan 🎁</button>
-  </a>
-</div>
-
-<script>
-const button = document.getElementById('surpriseBtn');
-
-function createConfetti(x, y) {
-  const confetti = document.createElement('div');
-  confetti.classList.add('confetti');
-  confetti.style.left = x + 'px';
-  confetti.style.top = y + 'px';
-  confetti.style.backgroundColor = `hsl(${Math.random()*360}, 70%, 60%)`;
-  document.body.appendChild(confetti);
-
-  const dx = (Math.random() - 0.5) * 200;
-  const dy = - (Math.random() * 200 + 100);
-  confetti.animate([
-    { transform: 'translate(0,0)', opacity: 1 },
-    { transform: `translate(${dx}px, ${dy}px) rotate(${Math.random()*360}deg)`, opacity: 0 }
-  ], { duration: 2000, easing: 'ease-out' });
-
-  setTimeout(() => confetti.remove(), 2000);
-}
-
-button.addEventListener('click', (e) => {
-  const rect = button.getBoundingClientRect();
-  const x = rect.left + rect.width/2;
-  const y = rect.top + rect.height/2;
-
-  // generate banyak confetti
-  for(let i=0; i<30; i++) {
-    createConfetti(x, y);
-  }
-});
-</script>
+  <div class="card">
+    <h1>Hai Jesslyn ✨</h1>
+    <p>Ada sesuatu yang spesial untuk kamu...</p>
+    <a href="../surprise/surprise.html">
+      <button>Klik Kejutan 🎁</button>
+    </a>
+  </div>
 </body>
 </html>
